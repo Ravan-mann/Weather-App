@@ -53,7 +53,7 @@ export interface ForecastData {
     };  
         country: string;
 }
-export interface reverseGeocodeData {
+export interface ReverseGeocodeData {
     name: string;
     local_names: Record<string, string>;
     lat: number;

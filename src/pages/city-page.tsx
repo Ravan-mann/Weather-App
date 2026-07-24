@@ -1,6 +1,4 @@
-import React from "react";
-
-const CityPage = () => {    
+const CityPage = () => {
     return (
         <div>
             City Page

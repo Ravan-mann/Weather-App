@@ -1,6 +1,5 @@
 import type { Coordinates } from "../api/types";
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, useCallback } from "react";
 
 interface GeolocationState {
     coordinates: Coordinates | null;
@@ -15,8 +14,8 @@ export function useGeolocation() {
         loading: true
     });
 
-    const getLocation = () => {
-        setLocationData(prevState => ({ ...prevState, loading: true,error: null }));
+    const getLocation = useCallback(() => {
+        setLocationData(prevState => ({ ...prevState, loading: true, error: null }));
 
         if (!navigator.geolocation) {
             setLocationData({
@@ -26,8 +25,8 @@ export function useGeolocation() {
             });
             return;
         }
-            
-        navigator.geolocation.getCurrentPosition((position) =>{
+
+        navigator.geolocation.getCurrentPosition((position) => {
             setLocationData({
                 coordinates: {
                     lat: position.coords.latitude,
@@ -38,7 +37,7 @@ export function useGeolocation() {
             });
         }, (error) => {
             let errorMessage: string;
-            switch(error.code) {
+            switch (error.code) {
                 case error.PERMISSION_DENIED:
                     errorMessage = "User denied the request for Geolocation.";
                     break;
@@ -46,7 +45,7 @@ export function useGeolocation() {
                     errorMessage = "Location information is unavailable.";
                     break;
                 case error.TIMEOUT:
-                    errorMessage = "The request to get user location timed out.";
+                    errorMessage = "The request to get user location timed out. Please try again or search for a city manually.";
                     break;
                 default:
                     errorMessage = "An unknown error occurred.";
@@ -57,20 +56,19 @@ export function useGeolocation() {
                 error: errorMessage,
                 loading: false,
             });
-        },{
-            enableHighAccuracy: true,
-            timeout: 10000,
-            maximumAge: 0
+        }, {
+            enableHighAccuracy: false,
+            timeout: 20000,
+            maximumAge: 60000,
         });
-    }
-    useEffect(() => {
-        getLocation();  
     }, []);
 
+    useEffect(() => {
+        getLocation();
+    }, [getLocation]);
 
     return {
         ...locationData,
-    getLocation,
-};
-
+        getLocation,
+    };
 }
