@@ -4,6 +4,8 @@ import { useGeolocation } from '@/hooks/use-geolocation';
 import { WeatherSkeleton } from '@/components/loading-skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { useForecastQuery, useReverseGeocodeQuery, useWeatherQuery } from '@/hooks/use-weather';
+import CurrentWeather from "@/components/currentWeather"
+import HourlyTemperature from '@/components/hourly-temprature';
 
 const WeatherDashboard = () => {
   const {
@@ -64,7 +66,8 @@ const WeatherDashboard = () => {
     );
   }
 
-  const locationName = locationQuery.data?.name;
+  const locationData = locationQuery.data?.[0];
+  const locationName = locationData?.name;
 
   if (weatherQuery.error || forecastQuery.error) {
         return ( <Alert variant="destructive" className="max-w-md">
@@ -101,8 +104,30 @@ const WeatherDashboard = () => {
               weatherQuery.isFetching ? "animate-spin" : ""}`} />
           </Button>
       </div>
+ 
+      <div>
+              <div className='grid gap-6'>
+               <div className='flex flex-col lg:flex-row gap-4'> 
+               <CurrentWeather
+                data={weatherQuery.data}
+                locationName={locationData}
+                />
+              <HourlyTemperature
 
-      {/* current weather */}
+                 data={forecastQuery.data}
+
+              />
+              {/* hourly temprature */}
+
+                </div>
+              </div>
+
+              <div>
+                {/* details */}
+                {/* forecast */}
+              </div>
+      </div>
+
     </div>
   )
 }
