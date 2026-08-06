@@ -11,6 +11,7 @@ import { useGeolocation } from "@/hooks/use-geolocation";
 import { WeatherDetails } from "../components/weather-details";
 import HourlyTemperature from "../components/hourly-temprature";
 import { WeatherSkeleton } from "../components/loading-skeleton";
+import { WeatherForecast } from "../components/weather-forecast";
 
 export function WeatherDashboard() {
   const {
@@ -94,7 +95,7 @@ export function WeatherDashboard() {
 
   return (
     <div className="space-y-4">
-      {/* <FavoriteCities />
+       {/* <FavoriteCities /> */}
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold tracking-tight">My Location</h1>
         <Button
@@ -102,14 +103,14 @@ export function WeatherDashboard() {
           size="icon"
           onClick={handleRefresh}
           disabled={weatherQuery.isFetching || forecastQuery.isFetching}
-        >
+        > 
           <RefreshCw
             className={`h-4 w-4 ${
               weatherQuery.isFetching ? "animate-spin" : ""
             }`}
           />
         </Button>
-      </div> */}
+      </div> 
 
       <div className="grid gap-6">
         <div className="flex flex-col lg:flex-row gap-4">
@@ -122,7 +123,7 @@ export function WeatherDashboard() {
 
         <div className="grid gap-6 md:grid-cols-2 items-start">
           <WeatherDetails data={weatherQuery.data} />
-          {/* <WeatherForecast data={forecastQuery.data} /> */}
+          <WeatherForecast data={forecastQuery.data} /> 
         </div>
       </div>
     </div>
