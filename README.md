@@ -74,6 +74,3 @@ export default defineConfig([
 ])
 
 ```
-=======
-# Weather-App
->>>>>>> 67756603ed3313f19a8e798007cc9b805525556b

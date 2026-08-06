@@ -3,6 +3,7 @@ import type { Coordinates } from "./types";
 import type { WeatherData } from "./types";
 import type { ForecastData } from "./types";
 import type { ReverseGeocodeData } from "./types";
+import type { GeocodingResponse} from "./types";
 
 class WeatherApi {
     private createUrl(
@@ -55,6 +56,15 @@ class WeatherApi {
         });
 
         return this.fetchData<ReverseGeocodeData[]>(url);
+    }
+
+    async searchLocation(query: string): Promise<GeocodingResponse[]> {
+        const url = this.createUrl(`${API_CONFIG.GEO}/direct`, {
+            q: query,
+            limit: 5,
+        });
+
+        return this.fetchData<GeocodingResponse[]>(url);
     }
 }
 
