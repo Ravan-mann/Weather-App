@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import "./App.css";
 import Layout from "./components/layout";
 import { ThemeProvider } from "./context/them-provider";
@@ -23,12 +23,13 @@ function App() {
     <div>
        <QueryClientProvider client={queryClient}>
 
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ThemeProvider defaultTheme="dark">
       <Layout>
         <Routes>
           <Route path="/" element={<WeatherDashboard />} />
           <Route path="/city/:cityName" element={<CityPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>
       </ThemeProvider>
