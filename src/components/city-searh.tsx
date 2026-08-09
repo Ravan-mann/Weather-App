@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button } from "./ui/button";
 import { Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from "./ui/command";
-import { Search, Loader2, XCircle, Ghost, Clock, Star } from "lucide-react";
+import { Search, Loader2, XCircle,  Clock, Star } from "lucide-react";
 import { useSearchLocationQuery } from "@/hooks/use-weather";
 import { useNavigate } from "react-router-dom";
 import { useSearchHistory } from "@/hooks/use-search-history";
