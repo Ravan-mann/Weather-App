@@ -5,7 +5,7 @@ import { defineConfig } from "vite"
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/W1eather-app/" : "/",
+  base: mode === "production" ? "/Weather-app/" : "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
