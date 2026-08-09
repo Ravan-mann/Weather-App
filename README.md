@@ -1,76 +1,180 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# 🌦️ Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive weather application built with **React**, **TypeScript**, and **Vite**. Search for cities around the world, view current weather conditions, and manage your favorite locations with a clean and intuitive interface.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-blue?logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🌍 Search weather for any city
+- 🌡️ Current weather information
+- 💨 Wind speed and direction
+- 💧 Humidity
+- 🌅 Sunrise & Sunset timings
+- 📊 Atmospheric pressure
+- ⭐ Add and remove favorite cities
+- 🕒 Search history
+- 📱 Fully responsive design
+- ⚡ Fast data fetching with TanStack Query
+- 🎨 Clean modern UI built with Tailwind CSS
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠 Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- TanStack Query
+- OpenWeather API
+- date-fns
+- Lucide React
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Project Structure
 
+```text
+src/
+│── api/
+│── components/
+│── hooks/
+│── lib/
+│── pages/
+│── types/
+│── App.tsx
+│── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Ravan-mann/Weather-App.git
+```
+
+### 2. Navigate into the project
+
+```bash
+cd Weather-App
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Create an environment file
+
+Create a `.env` file in the project root.
+
+```env
+VITE_OPENWEATHER_API_KEY=your_api_key
+```
+
+### 5. Start the development server
+
+```bash
+npm run dev
+```
+
+Open:
 
 ```
+http://localhost:5173
+```
+
+---
+
+## 📦 Build for Production
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+---
+
+## 📸 Screenshots
+
+Add screenshots here.
+
+```
+screenshots/
+├── home.png
+├── weather.png
+├── favorites.png
+```
+
+---
+
+## 📈 Future Improvements
+
+- 7-day weather forecast
+- Air Quality Index (AQI)
+- Weather maps
+- Geolocation support
+- Dark / Light mode
+- Multiple language support
+- Weather alerts
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome.
+
+1. Fork the repository.
+2. Create a new branch.
+
+```bash
+git checkout -b feature/feature-name
+```
+
+3. Commit your changes.
+
+```bash
+git commit -m "Add feature"
+```
+
+4. Push the branch.
+
+```bash
+git push origin feature/feature-name
+```
+
+5. Open a Pull Request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Ravan Mann**
+
+GitHub: https://github.com/Ravan-mann
+
+---
+
+⭐ If you found this project useful, consider giving it a star.
