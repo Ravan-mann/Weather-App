@@ -1,11 +1,12 @@
 import * as React from "react";
 import { Button } from "./ui/button";
 import { Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from "./ui/command";
-import { Search, Loader2, XCircle, Ghost, Clock } from "lucide-react";
+import { Search, Loader2, XCircle, Ghost, Clock, Star } from "lucide-react";
 import { useSearchLocationQuery } from "@/hooks/use-weather";
 import { useNavigate } from "react-router-dom";
 import { useSearchHistory } from "@/hooks/use-search-history";
 import { format } from "date-fns";
+import { useFavorites } from "@/hooks/use-favorite";
 const CitySearch = () => {
 
 
@@ -31,6 +32,8 @@ const CitySearch = () => {
       setOpen(false);
     }
 
+    const { favorites } =  useFavorites();
+
     return (
     <>
      <Button
@@ -51,6 +54,28 @@ const CitySearch = () => {
             {/* <CommandGroup heading="Favorites">
               <CommandItem>Calendar</CommandItem>
             </CommandGroup> */}
+            {favorites.length > 0 && (
+              <>
+              <CommandGroup heading="Favorites">
+                {favorites.map((location)=>{
+                  return <CommandItem key={location.id}
+                    value={`${location.name}|${location.lat}|${location.lon}|${location.country}`} 
+                    onSelect={(cityData) => {
+                      handleSelect(cityData);
+                    }}>
+                      <Star className="h-4 w-4 text-yellow-500" />
+                      <span>{location.name}</span>
+                    {location.state && (
+                      <span className="text-muted-foreground">
+                        {location.state}, {location.country}
+                      </span>
+                    )}
+                    </CommandItem>
+                })}
+            </CommandGroup>
+              </>
+          )}
+
             {history.length > 0 && (
               <>
               <CommandSeparator />  

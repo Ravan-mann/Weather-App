@@ -5,7 +5,7 @@ const Layout = ({children } : PropsWithChildren) => {
 
     return (
         <>
-        <div className="bg-gradient-to-br from-background to-muted"></div>
+        <div className="bg-linear-to-br from-background to-muted"></div>
         <Header />
         <main className=" min-h-screen container mx-auto px-4 py-8">
             
@@ -13,7 +13,7 @@ const Layout = ({children } : PropsWithChildren) => {
         
         </main>
         <footer className="border-t backdrop-blur supports-backdrop-filter:bg-background/60">
-            <div className="container mx-auto px-4 py-6 text-center text-gray-200">
+            <div className="container mx-auto px-4 py-6 text-center text-muted-foreground">
                 <p>
                     made with ❤️ by Mann
                 </p>
